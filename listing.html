@@ -27,6 +27,18 @@
     <link href="css/set1.css" rel="stylesheet">
     <!-- Main CSS -->
     <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .hide-package {
+            display: none;
+        }
+
+        .show-package {
+            display: initial !important;
+        }
+
+    </style>
+
 </head>
 
 <body>
@@ -239,7 +251,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6 card-2">
+                        <div class="hide-package history col-md-6 card-2">
                             <!-- card-1 -->
                             <div class="card">
                                 <a href="detail.html"><img class="card-img-top" src="images/listing-thumb-3.jpg" alt="Card image cap"></a>
@@ -266,7 +278,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 card-2">
+                        <div class="hide-package history col-md-6 card-2">
                             <div class="card">
                                 <a href="detail.html"><img class="card-img-top" src="images/listing-thumb-4.jpg" alt="Card image cap"></a>
                                 <div class="card-body">
@@ -293,7 +305,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 card-2">
+                        <div class="hide-package relax col-md-6 card-2">
                             <div class="card">
                                 <a href="detail.html"><img class="card-img-top" src="images/listing-thumb-5.jpg" alt="Card image cap"></a>
                                 <div class="card-body">
@@ -324,7 +336,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 card-2">
+                        <div class="hide-package relax col-md-6 card-2">
                             <div class="card">
                                 <a href="detail.html"><img class="card-img-top" src="images/listing-thumb-6.jpg" alt="Card image cap"></a>
                                 <div class="card-body">
@@ -355,7 +367,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 card-2">
+                        <div class="hide-package wildlife col-md-6 card-2">
                             <div class="card">
                                 <a href="detail.html"><img class="card-img-top" src="images/listing-thumb-1.jpg" alt="Card image cap"></a>
                                 <div class="card-body">
@@ -386,7 +398,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 card-2">
+                        <div class="hide-package wildlife col-md-6 card-2">
                             <div class="card">
                                 <a href="detail.html"><img class="card-img-top" src="images/listing-thumb-2.jpg" alt="Card image cap"></a>
                                 <div class="card-body">
@@ -481,6 +493,38 @@
     <script src="js/script.js"></script>
     <!-- Map JS (Please change the API key below. Read documentation for more info) -->
     <script src="https://maps.googleapis.com/maps/api/js?callback=myMap&key=AIzaSyDMTUkJAmi1ahsx9uCGSgmcSmqDTBF9ygg"></script>
+
+    <script>
+
+        var getUrlParameter = function getUrlParameter(sParam) {
+            var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : sParameterName[1];
+                }
+            }
+        };
+
+        $(function() {
+            switch ( getUrlParameter('category')) {
+                case 'history':
+                        $('.history').addClass('show-package');
+                     break;
+                case 'relax':
+                        $('.relax').addClass('show-package');
+                     break;
+                case 'wildlife':
+                        $('.wildlife').addClass('show-package');
+                     break;
+            }
+        });
+    </script>
 
 </body>
 
